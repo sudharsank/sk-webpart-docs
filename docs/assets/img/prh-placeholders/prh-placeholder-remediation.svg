@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-label="PRH remediation placeholder">
+  <rect width="1280" height="720" fill="#143b6c"/>
+  <rect x="100" y="90" width="1080" height="540" rx="20" fill="#ffffff" fill-opacity="0.1" stroke="#9eddff" stroke-opacity="0.35"/>
+  <text x="640" y="314" fill="#ffffff" font-size="50" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-weight="700">PRH Remediation Placeholder</text>
+  <text x="640" y="374" fill="#d2ebff" font-size="27" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif">Replace with seal / reinherit / purge action visual</text>
+</svg>

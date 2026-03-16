@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-label="PRH scan workflow placeholder">
+  <rect width="1280" height="720" fill="#0b3563"/>
+  <rect x="88" y="88" width="1104" height="544" rx="18" fill="#ffffff" fill-opacity="0.1"/>
+  <text x="640" y="312" fill="#ffffff" font-size="52" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-weight="700">PRH Scan Workflow Placeholder</text>
+  <text x="640" y="372" fill="#d3ecff" font-size="28" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif">Replace with selection -> scan -> results visual</text>
+</svg>

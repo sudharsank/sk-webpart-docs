@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-label="PRH troubleshooting placeholder">
+  <rect width="1280" height="720" fill="#223a68"/>
+  <rect x="110" y="86" width="1060" height="548" rx="18" fill="#ffffff" fill-opacity="0.11"/>
+  <text x="640" y="314" fill="#ffffff" font-size="50" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-weight="700">PRH Troubleshooting Placeholder</text>
+  <text x="640" y="374" fill="#ddefff" font-size="27" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif">Replace with error-state or diagnostics screenshot</text>
+</svg>
