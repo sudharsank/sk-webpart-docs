@@ -1,54 +1,30 @@
-site_name: SK SharePoint Webparts
-site_description: Documentation portal for SPFx governance command web parts
+site_name: Clarix
+site_description: Enterprise-grade Microsoft 365 web parts for governance, risk, operations, and productivity. Drop in. Configure. Get results.
 site_url: https://sudharsank.github.io/sk-webpart-docs/
-repo_url: https://github.com/sudharsank/sk-webpart-docs.git
-edit_uri: ""
-
-docs_dir: docs
-site_dir: site
 
 theme:
   name: material
-  logo: assets/img/glassops-logo.svg
-  favicon: assets/img/prh-welcome-light.png
+  logo: assets/img/logo.png
+  favicon: assets/img/favicon.png
+  font:
+    text: Space Grotesk
+    code: JetBrains Mono
   features:
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.sections
-    - navigation.expand
+    - navigation.indexes
     - navigation.top
     - navigation.path
+    - toc.follow
     - content.code.copy
+    - content.tabs.link
     - search.suggest
     - search.highlight
   palette:
-    - scheme: default
-      toggle:
-        icon: material/weather-night
-        name: Switch to dark mode
-      primary: blue grey
-      accent: teal
-    - scheme: slate
-      toggle:
-        icon: material/weather-sunny
-        name: Switch to light mode
-      primary: blue grey
-      accent: teal
-
-markdown_extensions:
-  - admonition
-  - attr_list
-  - md_in_html
-  - tables
-  - def_list
-  - pymdownx.details
-  - pymdownx.superfences
-  - pymdownx.inlinehilite
-  - pymdownx.highlight
-  - pymdownx.snippets
-
-plugins:
-  - search
+    scheme: default
+    primary: custom
+    accent: custom
 
 extra_css:
   - assets/css/custom.css
@@ -56,14 +32,42 @@ extra_css:
 extra_javascript:
   - assets/js/custom.js
 
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - tables
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+plugins:
+  - search:
+      lang: en
+  - glightbox
+  - minify:
+      minify_html: true
+
 nav:
   - Home: index.md
-  - Webparts:
-      - Webpart Catalog: webparts/index.md
+  - Web Parts:
+      - Catalog: webparts/index.md
       - Permission Risk Heatmap:
           - Overview: webparts/prh/index.md
-          - Home Screen Tour: webparts/prh/features.md
-          - Roles and Operating Model: webparts/prh/roles-and-operating-model.md
+          - Features: webparts/prh/features.md
+          - Roles & Operating Model: webparts/prh/roles-and-operating-model.md
           - Workflow Guide: webparts/prh/workflow-guide.md
-          - FAQ and Troubleshooting: webparts/prh/troubleshooting.md
-          - Platform Notes: webparts/prh/architecture.md
+          - Troubleshooting: webparts/prh/troubleshooting.md
+          - Architecture: webparts/prh/architecture.md

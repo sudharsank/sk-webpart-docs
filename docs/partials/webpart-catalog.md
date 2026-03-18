@@ -1,10 +1,4 @@
----
-hide:
-  - toc
-  - navigation
----
-
-<section class="catalog-shell glass" data-webpart-catalog style="margin-top: 0; margin-bottom: 3rem;">
+<section class="catalog-shell glass" data-webpart-catalog style="margin-top: -1rem;">
   <div class="catalog-toolbar">
     <div class="catalog-toolbar__copy">
       <p class="eyebrow" style="color: var(--clarix-violet); font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase;">Enterprise Portfolio</p>
@@ -17,9 +11,9 @@ hide:
         <input type="search" placeholder="Search web parts..." data-webpart-search />
       </label>
       <label class="catalog-select">
-        <span>Categories</span>
+        <span>Domain Filter</span>
         <select data-webpart-domain>
-          <option value="">All Categories</option>
+          <option value="">All Domains</option>
           <option value="Ops & Governance">Ops & Governance</option>
           <option value="Knowledge & Communication">Knowledge & Communication</option>
           <option value="Process Productivity">Process Productivity</option>
@@ -153,6 +147,6 @@ hide:
 
   <div class="catalog-empty glass" hidden data-webpart-empty>
     <strong>No web parts matched this search.</strong>
-    <p>Try a broader term or switch the category filter back to `All Categories`.</p>
+    <p>Try a broader term or switch the domain filter back to `All Domains`.</p>
   </div>
 </section>

@@ -1,68 +1,119 @@
 ---
+title: Clarix — Unified Microsoft 365 Solutions
+description: High-performance SharePoint web parts for every mission — from governance to productivity.
 hide:
   - navigation
   - toc
 ---
 
-# SK SharePoint Webparts
+<section class="hero-split">
+<div class="hero-copy" markdown="1">
+<p class="eyebrow" style="margin-bottom: 0.5rem; text-transform: uppercase; font-weight: 900; color: var(--clarix-violet); font-size: 2rem; letter-spacing: 0.1em;margin-top:-0.6em">Enterprise M365 Portfolio</p>
 
-<section class="home-hero reveal-on-load">
-  <div class="home-hero__copy glass">
-    <p class="eyebrow">Enterprise Documentation Hub</p>
-    <h1>SharePoint web parts designed to help teams govern work, explain decisions, and keep business operations moving.</h1>
-    <p>SK SharePoint Webparts is a product portfolio for organizations that need stronger governance, clearer visibility, and more usable workflow experiences inside SharePoint. It is built for administrators who need control and evidence, and for end users who need guidance without technical friction.</p>
-    <div class="hero-cta-row">
-      <a class="cta" href="webparts/index/">Explore the webpart catalog</a>
-      <a class="cta cta-secondary" href="webparts/prh/">Open PRH documentation</a>
-    </div>
-    <div class="hero-pill-row">
-      <span class="hero-pill">Ops &amp; Governance</span>
-      <span class="hero-pill">Knowledge &amp; Communication</span>
-      <span class="hero-pill">Process Productivity</span>
-    </div>
-  </div>
+Unified solutions for Microsoft 365.
 
-  <div class="home-hero__signals glass">
-    <div class="signal-card">
-      <span class="signal-card__label">Built For</span>
-      <strong>Admins, site owners, reviewers, and end users</strong>
-      <p>Documentation focuses on outcomes, actions, and business value rather than technical implementation detail.</p>
-    </div>
-    <div class="signal-card">
-      <span class="signal-card__label">Why It Exists</span>
-      <strong>Turn fragmented SharePoint work into guided operational experiences</strong>
-      <p>Each web part is designed around a high-value workflow where governance, clarity, and time-to-action matter.</p>
-    </div>
-    <div class="signal-card">
-      <span class="signal-card__label">What You Get</span>
-      <strong>A portfolio, not a single widget</strong>
-      <p>Reusable governance patterns, strong user guidance, and domain-specific workspaces that can scale as the catalog grows.</p>
-    </div>
-  </div>
+A focused portfolio of high-performance SharePoint web parts built to solve operational challenges across all sectors and domains. Secure, tenant-isolated, and ready to deploy in minutes.
+
+<div style="font-size: 0.8rem; color: #64748B; margin-top: 1.25rem; font-weight: 700; display: flex; gap: 1rem;">
+<span>✓ Tenant Isolated</span>
+<span>✓ AppSource Ready</span>
+<span>✓ SOC-2 Friendly</span>
+</div>
+
+<div class="sector-pills" markdown="1">
+<div class="sector-pill">🛡️ Ops & Governance</div>
+<div class="sector-pill">💬 Knowledge & Communication</div>
+<div class="sector-pill">⚡ Process Productivity</div>
+<div class="sector-pill">🔒 Security & Compliance</div>
+</div>
+</div>
+
+<div class="hero-quick-products">
+<div class="quick-product-heading">Latest Web Parts</div>
+
+<a href="webparts/prh/index.md" class="product-quick-card">
+<div class="product-quick-icon">🛡️</div>
+<div class="product-quick-info">
+<strong>Permission Risk Heatmap</strong>
+<span>Visibility for overshared sites and exposure.</span>
+</div>
+</a>
+
+<div class="product-quick-card">
+<div class="product-quick-icon">📊</div>
+<div class="product-quick-info">
+<strong>Policy Drift Dashboard</strong>
+<span>Real-time baseline compliance monitoring.</span>
+<span style="font-size: 0.65rem; color: #EF4444; font-weight: 800; text-transform: uppercase; margin-top: 0.2rem; display: block;">Coming Soon</span>
+</div>
+</div>
+
+<div class="product-quick-card">
+<div class="product-quick-icon">🏗️</div>
+<div class="product-quick-info">
+<strong>Secure Site Provisioning Studio</strong>
+<span>Governed lifecycle and policy templates.</span>
+<span style="font-size: 0.65rem; color: #EF4444; font-weight: 800; text-transform: uppercase; margin-top: 0.2rem; display: block;">Coming Soon</span>
+</div>
+</div>
+
+<div class="product-quick-card">
+<div class="product-quick-icon">🔗</div>
+<div class="product-quick-info">
+<strong>External Sharing Command Center</strong>
+<span>Guest link lifecycle and auto-expiry.</span>
+<span style="font-size: 0.65rem; color: #EF4444; font-weight: 800; text-transform: uppercase; margin-top: 0.2rem; display: block;">Coming Soon</span>
+</div>
+</div>
+
+<div class="product-quick-card">
+<div class="product-quick-icon">🌍</div>
+<div class="product-quick-info">
+<strong>Global Governance Admin</strong>
+<span>Centralized control for multi-tenant assets.</span>
+<span style="font-size: 0.65rem; color: #EF4444; font-weight: 800; text-transform: uppercase; margin-top: 0.2rem; display: block;">Coming Soon</span>
+</div>
+</div>
+</div>
 </section>
 
-<section class="section-band reveal-on-load">
-  <div class="section-band__intro">
-    <p class="eyebrow">Why Teams Use It</p>
-    <h2>SharePoint experiences that feel operational, not improvised.</h2>
-    <p>These web parts are meant to help people make decisions faster, reduce risk earlier, and work inside familiar SharePoint surfaces without jumping between disconnected tools.</p>
-  </div>
-  <div class="section-band__grid">
-    <article class="value-panel glass">
-      <h3>For Admins</h3>
-      <p>Gain stronger governance visibility, safer remediation paths, and evidence that leadership and auditors can actually use.</p>
-    </article>
-    <article class="value-panel glass">
-      <h3>For Business Teams</h3>
-      <p>Understand what changed, what needs review, and where the business impact sits without reading technical documentation.</p>
-    </article>
-    <article class="value-panel glass">
-      <h3>For Growth</h3>
-      <p>Start with today’s MVP priorities and expand into a larger searchable catalog of workflow-specific web parts over time.</p>
-    </article>
-  </div>
-</section>
+---
 
-## Webpart Catalog
+<h2 class="section-title">Transparent licensing. Uniform scaling.</h2>
 
---8<-- "../partials/webpart-catalog.md"
+<div class="plan-grid" markdown="1">
+<div class="plan-card" markdown="1">
+🕒 **Trial Plan**  
+14 days of unrestricted access to every feature. Build your business case with zero risk.
+</div>
+
+<div class="plan-card" markdown="1">
+🏢 **Business Plan**  
+Essential scanning, visualization, and history for teams that need visibility.
+</div>
+
+<div class="plan-card" markdown="1">
+🛡️ **Enterprise Plan**  
+The full command surface: Remediation actions and admin policy controls.
+</div>
+</div>
+
+---
+
+<div class="compare-grid" markdown="1">
+<div class="compare-col" markdown="1">
+### DIY Solutions
+*   **Weeks of custom development**
+*   Fragile scripts and API maintenance
+*   Hidden security & compliance debt
+*   Manual audit and log management
+</div>
+
+<div class="compare-col" markdown="1">
+### Clarix Portfolio
+*   **Deployment in minutes, not months**
+*   Native updates managed by us
+*   Audit-ready SOC compliance
+*   Predictable transparent subscription
+</div>
+</div>
