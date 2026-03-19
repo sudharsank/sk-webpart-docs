@@ -12,11 +12,19 @@
   --clarix-gradient:    linear-gradient(135deg, var(--clarix-violet) 0%, var(--clarix-cyan) 100%);
 }
 
-/* 0. GLOBAL WHITE SPACE ELIMINATION */
+/* 0. GLOBAL COMPACT FOUNDATION */
+.layout-home .md-main__inner,
+.layout-webparts-catalog .md-main__inner { 
+  margin-top: 0 !important; 
+  padding-top: 0 !important; 
+}
+
+.layout-home .md-content__inner,
+.layout-webparts-catalog .md-content__inner { 
+  padding-top: 0 !important; 
+  margin-top: 0 !important; 
+}
 .md-grid { max-width: 1540px !important; }
-.md-main__inner { margin-top: 0 !important; padding-top: 0 !important; }
-.md-sidebar { top: 0 !important; }
-.md-content__inner { padding-top: 0 !important; margin-top: 0 !important; }
 
 [data-md-color-scheme="default"] {
   --md-default-bg-color: #FFFFFF;
@@ -190,6 +198,24 @@
 .btn-primary { padding: 0.6rem 1.2rem !important; font-size: 0.9rem !important; }
 hr { margin: 1.5rem 0 !important; opacity: 0.1; }
 
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--clarix-violet) !important;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 2rem;
+  transition: all 0.2s ease;
+}
+.btn-back:hover {
+  transform: translateX(-4px);
+  color: var(--clarix-navy) !important;
+}
+
 /* Back to Top - Compact Circle */
 .md-top {
   bottom: 2rem !important;
@@ -231,6 +257,40 @@ hr { margin: 1.5rem 0 !important; opacity: 0.1; }
   max-width: 100% !important;
   margin: 0 !important;
   padding: 0 1rem !important;
+}
+
+/* 6. DOCUMENT SCREENSHOTS */
+.doc-screenshot {
+  margin: 1.5rem 0 2rem;
+  text-align: center;
+}
+
+.doc-screenshot img {
+  display: block;
+  width: 100%;
+  max-width: 72rem;
+  margin: 0 auto;
+  border-radius: 1rem;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+}
+
+.doc-screenshot figcaption {
+  max-width: 40rem;
+  margin: 0.9rem auto 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #64748b;
+}
+
+.doc-diagram-centered {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.doc-diagram-centered .mermaid {
+  margin: 0 auto;
 }
 
 .layout-webparts-catalog.md-typeset h1, 

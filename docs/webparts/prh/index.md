@@ -12,47 +12,32 @@ Permission Risk Heatmap (PRH) is a governance-focused SharePoint web part that h
 
 It is designed for the situations where access risk is easy to create but hard to interpret: broad group assignments, externally exposed content, broken inheritance, and lists or libraries that no longer match their intended ownership model. Instead of forcing teams to inspect permissions manually one item at a time, PRH turns those signals into a guided analysis experience with history, drill-down, and remediation support.
 
-!!! note "Image Placeholder"
-    **Placeholder name:** `prh-overview-main-screen.png`
+<figure class="doc-screenshot">
+  <img src="../../assets/img/prh-placeholders/prh-overview-main-screen.png" alt="PRH overview screen showing the main landing experience, scope selection, and analysis workspace." />
+  <figcaption>The PRH overview screen gives administrators and reviewers a clear starting point for scope selection, analysis, and follow-up action.</figcaption>
+</figure>
 
-    **What the final image should show:** the main PRH landing experience with scope selection, the analysis workspace, risk summary context, and the primary actions a reviewer uses to begin a scan.
+## At a Glance
 
-    **Why this image matters:** this should give administrators and business reviewers an immediate visual understanding of where they start, what they can review, and how PRH turns SharePoint permission data into an operational risk review experience.
-
-## What PRH Helps You Do
-
-- Identify overshared lists, libraries, and uniquely permissioned items faster.
-- Detect guest exposure and broad-access patterns that deserve governance review.
-- Prioritize risk using severity scoring instead of raw permission data alone.
-- Inspect forensic context before deciding whether remediation is safe.
-- Reopen previous scan sessions through history so teams can compare outcomes over time.
-- Export evidence and preserve traceability for audit, governance, or review meetings.
+| Area | What PRH gives you | Why it matters |
+| :--- | :--- | :--- |
+| `🛡️` **Permission visibility** | A focused way to review selected SharePoint lists and libraries | Cuts through the noise of manual permission checking |
+| `🚦` **Risk prioritization** | Severity-led findings instead of raw permission output | Helps teams decide what deserves attention first |
+| `🔎` **Forensic context** | User, group, and guest-level detail behind each finding | Reduces hesitation before remediation |
+| `🛠️` **Follow-up action** | Remediation-oriented workflows close to the findings | Keeps review and action in the same working context |
+| `🕒` **Review continuity** | History and session reuse | Supports recurring governance rather than one-time audits |
+| `📤` **Evidence support** | Export-friendly review output | Helps with governance review, audit, and follow-up tracking |
 
 ## Core Experience
 
 PRH is organized around a practical review flow rather than a purely technical screen layout.
 
-### 1. Scope selection
-
-Users start by choosing one or more SharePoint lists or libraries. The experience supports focused review by scope, which is important because large first-time scans often create more noise than action.
-
-### 2. Guided analysis
-
-Once a scan starts, PRH evaluates the selected sources and generates risk signals for list-level and item-level permission conditions. This includes:
-
-- unique permission breaks
-- external access presence
-- broad or potentially over-permissioned assignments
-- naming-based sensitivity heuristics
-- estimated risk value and score breakdown
-
-### 3. Review and drill-down
-
-Results can be reviewed in analysis views such as table and treemap mode, with forensic context for users, groups, and guest access. This allows reviewers to understand not only that something is risky, but also who is involved and why the signal exists.
-
-### 4. Remediation and follow-up
-
-Where policy and licensing allow, PRH supports remediation actions such as sealing permissions, re-inheriting permissions, or purging access. It also supports session history so teams can re-open earlier scans and verify what changed after follow-up action.
+| Step | What happens | What users should focus on |
+| :--- | :--- | :--- |
+| `1.` `📂` **Scope selection** | Users choose the lists or libraries to review | Start with a defined scope instead of scanning too broadly |
+| `2.` `🚀` **Guided analysis** | PRH evaluates the selected sources and generates risk signals | Look for unique permissions, guest exposure, broad access, and other risk patterns |
+| `3.` `📊` **Review and drill-down** | Findings can be reviewed in table or treemap views with forensic detail | Understand who has access, why the item was flagged, and whether the exposure is acceptable |
+| `4.` `🔧` **Remediation and follow-up** | Teams can move from review into approved corrective action and later re-check the results | Focus on safe remediation, traceability, and validation over time |
 
 ## Why It Matters
 
@@ -81,22 +66,26 @@ graph LR
 
 PRH is useful because SharePoint permission risk is rarely obvious from the page where the content lives. Exposure often comes from accumulated changes over time: extra owners, inherited drift, guest sharing, or one-off exceptions that became permanent. PRH helps teams review those patterns as an operational process instead of a manual investigation.
 
-## Intended Audience
+## Who This Is For
 
-- **Administrators** who run recurring permission-risk reviews.
-- **Site owners** who validate whether access still supports a real business need.
-- **Business reviewers** who help decide whether a finding is acceptable, risky, or needs remediation.
-- **End users** who need to understand why access changed after a governance review.
+| Role | What they use PRH for | Expected outcome |
+| :--- | :--- | :--- |
+| **Administrators** | Run scans, review high-risk findings, and coordinate follow-up | Critical findings are triaged and handled with evidence |
+| **Site owners** | Confirm whether current access still matches business need | Legitimate access is preserved and unnecessary access is challenged |
+| **Business reviewers** | Validate whether flagged access is acceptable or risky | Decisions are based on context, not assumption |
+| **End users** | Understand why access changed after governance review | Fewer surprises and faster issue confirmation after remediation |
 
 ## Prerequisites and Readiness
 
-Before using PRH effectively, make sure the following are in place:
+Before using PRH effectively, confirm the basics below.
 
-- **Environment**: SharePoint Online (Modern Experience).
-- **Permissions**: At minimum, the user needs enough access to review the target site and its relevant lists or libraries. In practice, the most effective reviews happen when the operator also has the authority to coordinate follow-up action.
-- **Deployment**: The PRH solution package must already be deployed to the tenant or target environment.
-- **Governance context**: PRH works best when the business owner for the reviewed scope is known before remediation discussions begin.
-- **Operational readiness**: Teams should already know whether they are running PRH for discovery, recurring review, or remediation validation.
+| Readiness area | What should already be true |
+| :--- | :--- |
+| **Environment** | SharePoint Online modern experience is in use |
+| **Permissions** | The operator has enough access to review the target site and its relevant lists or libraries |
+| **Deployment** | The PRH solution is already deployed to the target tenant or environment |
+| **Business ownership** | The reviewed scope has a known business owner before remediation starts |
+| **Review intent** | The team knows whether the session is for discovery, recurring review, or remediation validation |
 
 ## Quick Setup Guide
 
@@ -135,7 +124,7 @@ Use the following setup flow when PRH is being added to a page for the first tim
 ## What to Read Next
 
 1. Explore [Features & Capabilities](features.md) to understand the analysis workspace, views, and visual review model.
-2. Review [Roles and Operating Model](roles-and-operating-model.md) to define who performs scans, who validates findings, and who approves changes.
-3. Follow the [Workflow Guide](workflow-guide.md) for the end-to-end PRH review process.
-4. Use [Troubleshooting](troubleshooting.md) when a scan, history session, or export flow does not behave as expected.
-5. Read [Platform Notes](architecture.md) for boundary and system-behavior context without going into deep technical architecture.
+2. Review [Roles & Workflows](operating-model.md) to understand who does what and how PRH should be used in a real review cycle.
+3. Read [Administration & IT](administration.md) for PRH scope boundaries, history behavior, and environment expectations.
+4. Read [Commercials & Licensing](licensing.md) to understand plan behavior, activation, and entitlement review.
+5. Use [Troubleshooting](troubleshooting.md) when a scan, history session, or export flow does not behave as expected.

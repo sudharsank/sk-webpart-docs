@@ -11,9 +11,8 @@ theme:
     code: JetBrains Mono
   features:
     - navigation.tabs
+    - navigation.tabs
     - navigation.tabs.sticky
-    - navigation.sections
-    - navigation.indexes
     - navigation.top
     - navigation.path
     - toc.follow
@@ -63,11 +62,11 @@ plugins:
 nav:
   - Home: index.md
   - Web Parts:
-      - Catalog: webparts/index.md
       - Permission Risk Heatmap:
-          - Overview: webparts/prh/index.md
-          - Features: webparts/prh/features.md
-          - Roles & Operating Model: webparts/prh/roles-and-operating-model.md
-          - Workflow Guide: webparts/prh/workflow-guide.md
+          - Overview & Setup: webparts/prh/index.md
+          - Features & Capabilities: webparts/prh/features.md
+          - Step-by-Step Guide: webparts/prh/step-by-step-guide.md
+          - Roles & Workflows: webparts/prh/operating-model.md
+          - Administration & IT: webparts/prh/administration.md
+          - Commercials & Licensing: webparts/prh/licensing.md
           - Troubleshooting: webparts/prh/troubleshooting.md
-          - Architecture: webparts/prh/architecture.md

@@ -6,17 +6,32 @@ hide:
 <a href="../" class="btn-back">← Back to Web Parts Catalog</a>
 
 
-# Platform Notes
+# Administration & IT
 
-This section keeps the minimum product and platform context that administrators may need without turning the guide into a technical architecture manual. It is here to explain the practical boundaries of PRH, what the web part depends on, and what teams should assume before they use it in a recurring review model.
+This page is not meant to be a technical appendix. Its job is simpler: explain how PRH behaves in the real environment, what it works against, where history is kept, and what administrators and reviewers should realistically expect from the product.
 
-## What PRH Covers
+If the Overview page explains what PRH is, this page explains how it behaves once teams start using it in a real SharePoint review process.
 
-- Permission exposure across selected SharePoint lists and libraries within the active SharePoint context.
-- Severity-led findings that help teams triage oversharing, guest exposure, inheritance drift, and unusually broad access patterns.
-- Guided analysis views that help administrators and reviewers inspect findings in a more usable way than raw permission reports.
-- Remediation-oriented follow-up such as sealing, re-inheriting, or purging access where those actions are appropriate to the governance process.
-- Scan history and session reuse so teams can revisit prior reviews instead of starting from scratch each time.
+## What This Page Helps You Understand
+
+| Topic | Why it matters in PRH |
+| :--- | :--- |
+| **Review scope** | PRH works against selected lists and libraries, not against everything automatically |
+| **Operational boundary** | Users need to know what PRH is designed to support and what it is not meant to replace |
+| **History behavior** | Review continuity depends on understanding where sessions are stored and how long they remain available |
+| **Admin expectations** | Governance teams need to know what should be decided before scans and remediation begin |
+| **User expectations** | Site owners and reviewers need to understand what PRH can tell them and what still requires human judgment |
+
+## What PRH Works With
+
+PRH is built for SharePoint permission review in the context where people actually work: selected sites, selected lists, and selected libraries.
+
+| PRH focus area | What users should expect |
+| :--- | :--- |
+| **Selected lists and libraries** | PRH reviews the content sources chosen for the current session |
+| **Permission risk findings** | PRH surfaces likely oversharing, guest exposure, broken inheritance, and other broad-access conditions |
+| **Analysis and follow-up** | PRH supports review, investigation, and approved corrective action in the same working flow |
+| **Session history** | PRH supports returning to earlier reviews instead of rebuilding context every time |
 
 !!! note "Image Placeholder"
     **Placeholder name:** `prh-platform-scope-and-boundaries.png`
@@ -25,41 +40,42 @@ This section keeps the minimum product and platform context that administrators 
 
     **Why this image matters:** administrators need to understand the product boundary early so they do not assume PRH is scanning everything automatically or operating outside the selected review scope.
 
-## What PRH Does Not Replace
+## What PRH Is Not Meant to Replace
 
-- Enterprise records-management platforms.
-- Full tenant-wide content governance programs.
-- Formal approval systems already required by your organization.
-- Broader identity governance or data-classification tooling.
-- Existing SharePoint administration practices for site ownership, access lifecycle, and operational support.
+| Not replaced by PRH | Why that matters |
+| :--- | :--- |
+| **Enterprise governance programs** | PRH supports governance review, but it is not the whole governance model |
+| **Formal approval processes** | PRH helps teams decide, but it should not bypass existing approval rules |
+| **Records or compliance systems** | PRH is for permission-risk review, not for acting as a records platform |
+| **Identity governance tooling** | PRH helps surface permission exposure, but it does not replace broader identity controls |
+| **SharePoint operational ownership** | Site ownership, support, and business accountability still need to exist outside the web part |
 
-PRH should be treated as a review and decision-support surface. It helps users identify likely permission risk and act on it in context, but it does not replace the broader controls, approvals, and ownership model that already exist in an enterprise environment.
+PRH should be treated as a decision-support product. It helps teams understand likely risk faster, but it is still part of a larger governance and operating model.
 
-## Practical Product Boundaries
+## What Administrators Should Know Before Using PRH
 
-The most important boundary to understand is that PRH is scope-driven.
+| Admin question | Best-practice answer |
+| :--- | :--- |
+| **What should we scan first?** | Start with defined, high-value, or high-change scopes instead of broad exploratory scans |
+| **Who should be involved?** | The admin running PRH should know who the business owner is before remediation starts |
+| **How should findings be used?** | Use PRH findings to support review and action, not as automatic proof that every item must be changed |
+| **Can we use PRH for demos or training?** | Yes, but teams should understand whether they are working with mock data or live SharePoint content |
+| **What should happen before remediation?** | Owners and reviewers should agree whether the session is for discovery, validation, exception review, or corrective action |
 
-- It reviews the lists and libraries selected for the current analysis session.
-- It is strongest when administrators use it for targeted governance reviews rather than as an always-on tenant surveillance tool.
-- Its outputs are meant to support human review, governance discussion, and follow-up action, not to bypass existing policy controls.
-- Its history capability supports recurring review, but history should still be interpreted within the context of what was selected, when it was scanned, and what changed afterward.
-
-## Operating Assumptions
-
-- PRH is strongest when used with named business ownership for each important scope.
-- Remediation should follow your existing change and approval policies.
-- Scan history and exports should be retained according to governance and audit needs.
-- Reviewers should agree in advance whether the session is for discovery, exception review, remediation validation, or audit preparation.
-- The people using PRH should understand whether they are scanning live SharePoint data or using mock data for demonstration and training.
-
-## History, Persistence, and Review Continuity
+## History, Storage, and Review Continuity
 
 PRH is designed to support review continuity, not just one-time inspection.
 
-- Scan sessions can be retained and reopened so administrators can continue from a prior review state.
-- Where configured, history can support governance evidence and recurring review cycles.
-- Teams should still decide how long historical review output is retained and who is responsible for interpreting it later.
-- Historical sessions are useful for before-and-after validation, but they should not be treated as a substitute for current-state review when the underlying permissions may have changed again.
+| History topic | What PRH does today | What users should understand |
+| :--- | :--- | :--- |
+| **Session reuse** | PRH allows earlier scan sessions to be reopened | Teams can continue a review instead of starting over |
+| **Browser-local history** | PRH currently persists working history in browser local storage for the site context | This is useful for continuity, but it should not be treated as the only long-term evidence store |
+| **SharePoint list-backed history model** | PRH is designed around a `PermissionRiskHistory` list pattern for stronger persistence | This is the right direction when the organization needs stronger continuity or audit support |
+| **Retention behavior** | History availability depends on policy and plan behavior | Users should not assume every session will remain available forever |
+| **Evidence use** | History helps with before-and-after validation and governance review | Important evidence should still be retained through the organization’s approved process |
+
+!!! warning "Important"
+    PRH history is useful working context. It is not a substitute for formal evidence retention if your organization requires durable audit records.
 
 !!! note "Image Placeholder"
     **Placeholder name:** `prh-platform-history-behavior.png`
@@ -68,12 +84,14 @@ PRH is designed to support review continuity, not just one-time inspection.
 
     **Why this image matters:** this helps administrators understand that PRH supports continuity over time, which is one of the main operational differences between a one-off report and a reusable review tool.
 
-## When Technical Detail Is Actually Needed
+## What End Users and Reviewers Should Expect
 
-Most readers should not need technical internals. Technical detail is only useful when:
+This page is still relevant to non-admin readers because PRH only works well when everyone understands what the product is doing.
 
-- a support team needs to understand a product boundary
-- a governance team needs to clarify expected outputs
-- a future technical appendix is requested for platform integration or deployment questions
+| Reader | What they should understand |
+| :--- | :--- |
+| **Site owners** | PRH is reviewing the selected scope, not the entire tenant |
+| **Business reviewers** | PRH findings support decision-making, but business context still matters |
+| **End users** | A flagged item does not always mean an immediate change, but it does mean the access pattern deserves review |
+| **Governance teams** | PRH is strongest when it is used as part of a recurring review process, not a one-off reaction |
 
-If a technical appendix is ever added, it should stay narrowly focused on support-relevant topics such as scan scope behavior, persistence expectations, and operational constraints. It should not dominate the main PRH handbook, which is intended primarily for administrators, reviewers, and business stakeholders rather than engineers.
