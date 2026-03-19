@@ -12,9 +12,14 @@ function applyPageLayoutMode() {
   if (!body) {
     return;
   }
-  body.classList.remove("layout-webparts-catalog");
+  body.classList.remove("layout-webparts-catalog", "layout-home");
 
   var path = (window.location.pathname || "").toLowerCase();
+  
+  if (path === "/" || path.endsWith("/index.html") && path.split("/").length <= 2) {
+    body.classList.add("layout-home");
+  }
+
   var isCatalog =
     /\/webparts\/?$/.test(path) ||
     /\/webparts\/index\.html$/.test(path);

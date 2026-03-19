@@ -31,7 +31,7 @@ A focused portfolio of high-performance SharePoint web parts built to solve oper
 <div class="hero-quick-products">
 <div class="quick-product-heading">Latest Web Parts</div>
 
-<a href="webparts/prh/index.md" class="product-quick-card">
+<a href="webparts/prh/" class="product-quick-card">
 <div class="product-quick-icon">🛡️</div>
 <div class="product-quick-info">
 <strong>Permission Risk Heatmap</strong>

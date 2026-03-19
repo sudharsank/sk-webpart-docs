@@ -3,6 +3,9 @@ hide:
   - toc
 ---
 
+<a href="../" class="btn-back">← Back to Web Parts Catalog</a>
+
+
 # FAQ and Troubleshooting
 
 ## Common Questions

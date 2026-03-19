@@ -42,7 +42,7 @@ hide:
       <p>Visualize overshared sites and files, review exposure quickly, and move through remediation with a clearer audit trail.</p>
       <div class="catalog-card__footer">
         <span class="catalog-category">Security &amp; Compliance</span>
-        <a class="catalog-link" href="../webparts/prh/" style="color: var(--clarix-violet); font-weight: bold;">Read Docs →</a>
+        <a class="catalog-link" href="prh/" style="color: var(--clarix-violet); font-weight: bold;">Read Docs →</a>
       </div>
     </article>
 
