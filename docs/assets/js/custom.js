@@ -12,7 +12,7 @@ function applyPageLayoutMode() {
   if (!body) {
     return;
   }
-  body.classList.remove("layout-webparts-catalog", "layout-home");
+  body.classList.remove("layout-webparts-catalog", "layout-home", "layout-administration");
 
   var path = (window.location.pathname || "").toLowerCase();
   
@@ -26,6 +26,14 @@ function applyPageLayoutMode() {
 
   if (isCatalog) {
     body.classList.add("layout-webparts-catalog");
+  }
+
+  var isAdministration =
+    /\/administration\/?$/.test(path) ||
+    /\/administration\/index\.html$/.test(path);
+
+  if (isAdministration) {
+    body.classList.add("layout-administration");
   }
 }
 
