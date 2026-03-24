@@ -72,21 +72,138 @@ The intent is practical: find the highest-value review targets first, not just p
 
 PRH supports more than one way to read the results so different users can review findings in the format that helps them most.
 
-| View or behavior | Best use | Why it helps |
+| View tab | Best use | Why it helps |
 | :--- | :--- | :--- |
 | `📋` **Table view** | Structured, action-oriented review | Better when users want to work through findings one by one |
-| `🗺️` **Treemap view** | Visual pattern recognition | Better when users want to spot concentration and severity clusters quickly |
-| `🚥` **Severity indicators** | Priority reading | Helps distinguish low, medium, and high concern areas without opening every finding |
-| `🔍` **Search and navigation** | Larger review sessions | Helps users find relevant findings faster when the result set grows |
+| `🧊` **Grid view** | Card-based visual review | Better when users want richer summary cards without leaving the main result surface |
+| `🫧` **Clusters view** | Pattern and tier grouping | Better when users want to understand how findings group by risk level and concentration |
+| `🎯` **Radar view** | Signal-shape comparison | Better when users want to compare multiple forensic dimensions of a finding at once |
 
-The best view depends on the user. Administrators may prefer a table for action tracking, while business stakeholders often understand the treemap faster during review meetings.
+The best view depends on the question being asked. Table is best for action tracking. Grid is better for fast card-style scanning. Clusters helps show where findings are concentrating by tier. Radar helps explain why a single finding is strong across multiple dimensions.
+
+### What Each Tab Is For
+
+=== "📋 Table"
+
+    Use this when you want the most direct operational review experience.
+
+    **What it shows**
+    - the result set in a structured row-based grid
+    - sortable and reviewable findings for disciplined triage
+    - the current page of results when the scan returns multiple pages
+
+    **Best for**
+    - structured triage
+    - row-by-row investigation
+    - repeatable review sessions where teams need to work methodically
+
+    **What users should know**
+    - this is the most practical default tab for day-to-day review
+    - it works well when the admin needs to move through findings in order
+    - opening a row takes the user into the deeper forensic experience
+
+    <figure class="doc-screenshot">
+      <img src="../../../assets/img/prh-placeholders/prh-tab-table-view.png" alt="PRH Table tab showing row-based results, filters, and result counts." />
+      <figcaption>The Table tab is the most direct operational review surface, giving teams a structured way to triage findings one row at a time.</figcaption>
+    </figure>
+
+=== "🧊 Grid"
+
+    Use this when you want a more visual card layout without losing result detail.
+
+    **What it shows**
+    - one card per finding
+    - a visible risk score
+    - summary cues such as external users, broken inheritance, resource type, and a visual heat bar
+    - a compact sparkline-style visual trend element inside each card
+
+    **Best for**
+    - scanning many findings quickly
+    - comparing summary metrics across results
+    - review meetings where a dense table is harder to read
+
+    **What users should know**
+    - `Grid` is available across the usable plans
+    - it is still a working review tab, not just a presentation view
+    - large result sets still use pagination, and the card view is not intended to show everything at once on a single screen
+
+    <figure class="doc-screenshot">
+      <img src="../../../assets/img/prh-placeholders/prh-tab-grid-view.png" alt="PRH Grid tab showing card-based findings with score, external users, and inheritance status." />
+      <figcaption>The Grid tab turns findings into visual cards so users can scan risk scores and key signals faster without leaving the main review surface.</figcaption>
+    </figure>
+
+=== "🫧 Clusters"
+
+    Use this when you want to understand how risk is grouping across the result set.
+
+    **What it shows**
+    - findings grouped into visual hubs by risk tier
+    - separate regions for `Critical`, `High`, `Medium`, and `Safe / Compliant`
+    - node-style visual grouping that helps users see where concentration is building up
+    - hover-driven detail that supports deeper inspection without losing the cluster layout
+
+    **Best for**
+    - spotting concentration by risk tier
+    - identifying where critical and high findings are piling up
+    - governance review where pattern matters more than row detail
+
+    **What users should know**
+    - `Clusters` is a higher-tier view available only in Trial and Enterprise
+    - it is designed for pattern reading, not row-by-row remediation work
+    - it uses a bounded visible slice of the result set for usability, so it should be used to understand concentration rather than to replace detailed tabular review
+
+    <figure class="doc-screenshot">
+      <img src="../../../assets/img/prh-placeholders/prh-tab-clusters-view.png" alt="PRH Clusters tab showing grouped findings by risk tier hubs." />
+      <figcaption>The Clusters tab helps governance teams see where findings concentrate by tier, making risk patterns easier to read than a list alone.</figcaption>
+    </figure>
+
+=== "🎯 Radar"
+
+    Use this when you want to understand the shape of a finding, not just its score.
+
+    **What it shows**
+    - a radar profile for each finding across multiple dimensions
+    - dimensions such as `Sensitivity`, `External`, `Drift`, `Complexity`, and `Activity`
+    - a severity label and score alongside the chart
+    - supporting detail such as external users, groups, policy, and status
+
+    **Best for**
+    - comparing a finding across multiple forensic dimensions
+    - explaining why one item is stronger or weaker than another
+    - deeper review of priority items before remediation
+
+    **What users should know**
+    - `Radar` is available only in Trial and Enterprise
+    - it is the most interpretation-heavy tab and works best once users already understand the finding
+    - it still uses pagination when the result set is large, so it should be treated as an analytical view rather than a bulk-review surface
+
+    <figure class="doc-screenshot">
+      <img src="../../../assets/img/prh-placeholders/prh-tab-radar-view.png" alt="PRH Radar tab showing a radar profile with supporting forensic metrics." />
+      <figcaption>The Radar tab helps reviewers understand the shape of a finding across multiple dimensions such as sensitivity, external access, drift, complexity, and activity.</figcaption>
+    </figure>
+
+### View Availability by Plan
+
+| View tab | Business | Trial | Enterprise |
+| :--- | :--- | :--- | :--- |
+| `📋` **Table** | Available | Available | Available |
+| `🧊` **Grid** | Available | Available | Available |
+| `🫧` **Clusters** | Locked | Available | Available |
+| `🎯` **Radar** | Locked | Available | Available |
+
+### View-Specific Notes
+
+- `Table`, `Grid`, and `Radar` use paging when the result set is large.
+- `Grid` is available in Business, Trial, and Enterprise.
+- `Clusters` and `Radar` are not cosmetic add-ons; they are higher-tier visual intelligence views.
+- Business users can still complete meaningful reviews with `Table` and `Grid`, but the advanced pattern and forensic visualizations are reserved for Trial and Enterprise.
 
 !!! note "Image Placeholder"
-    **Placeholder name:** `prh-analysis-views-table-treemap.png`
+    **Placeholder name:** `prh-analysis-tabs-table-grid-clusters-radar.png`
 
-    **What the final image should show:** the PRH findings area displaying either the table view, the treemap view, or both captured separately, with enough context to show how users switch between views and how severity is represented.
+    **What the final image should show:** the PRH findings area with the full tab row visible, including `Table`, `Grid`, `Clusters`, and `Radar`, plus enough context to show which views are active or locked for the current plan.
 
-    **Why this image matters:** this section is where readers need to see the difference between structured review and visual review, because that choice shapes how they work through findings.
+    **Why this image matters:** this section now depends on the user understanding the tab model clearly. The screenshot should make the available and locked view options immediately obvious.
 
 ## Forensic Drill-Down
 

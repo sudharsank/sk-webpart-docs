@@ -79,7 +79,10 @@ Use this matrix when you need to review why one plan behaves differently from an
 
 | Capability area | Trial (14-Day Full) | Business (Standard) | Enterprise (Premium) |
 | :--- | :--- | :--- | :--- |
-| `🗺️` **Visualization** | Interactive treemap | Nested or table-led review experience | Interactive treemap |
+| `📋` **Table tab** | Available | Available | Available |
+| `🧊` **Grid tab** | Available | Available | Available |
+| `🫧` **Clusters tab** | Available | Locked | Available |
+| `🎯` **Radar tab** | Available | Locked | Available |
 | `📊` **Risk intelligence** | Financial impact style scoring | Label-aware and standard review intelligence | Financial impact style scoring |
 | `🕵️` **Shadow admin discovery** | Full recursive tracing | Reduced-depth tracing | Full recursive tracing |
 | `💥` **Blast radius analysis** | Interactive experience | Basic finding context | Full interactive experience |
@@ -93,6 +96,9 @@ Use this matrix when you need to review why one plan behaves differently from an
 | `⚙️` **Bulk operations** | Enabled | Restricted by plan policy | Enabled |
 | `🗂️` **History duration** | Full evaluation access | 30-day lookback | Extended or long-term retention model |
 | `📤` **Export behavior** | Full evaluation access | Standard export behavior | Higher-grade export behavior |
+
+!!! note "View Rule Summary"
+    In the current PRH model, `Table` and `Grid` are available across the usable plans, while `Clusters` and `Radar` are higher-tier visual intelligence views reserved for Trial and Enterprise.
 
 ## Activation and Renewal Review Flow
 
