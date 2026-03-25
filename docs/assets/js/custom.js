@@ -15,6 +15,8 @@ function applyPageLayoutMode() {
   body.classList.remove("layout-webparts-catalog", "layout-home", "layout-administration");
 
   var path = (window.location.pathname || "").toLowerCase();
+  var normalizedPath = path.replace(/\/index\.html$/, "/");
+  var pathSegments = normalizedPath.split("/").filter(Boolean);
   
   if (path === "/" || path.endsWith("/index.html") && path.split("/").length <= 2) {
     body.classList.add("layout-home");
@@ -29,8 +31,10 @@ function applyPageLayoutMode() {
   }
 
   var isAdministration =
-    /\/administration\/?$/.test(path) ||
-    /\/administration\/index\.html$/.test(path);
+    pathSegments.length >= 1 &&
+    pathSegments[pathSegments.length - 1] === "administration" &&
+    pathSegments[pathSegments.length - 2] !== "prh" &&
+    pathSegments.indexOf("webparts") === -1;
 
   if (isAdministration) {
     body.classList.add("layout-administration");

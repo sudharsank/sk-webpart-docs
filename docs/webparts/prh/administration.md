@@ -8,19 +8,7 @@ hide:
 
 # Administration & IT
 
-This page is not meant to be a technical appendix. Its job is simpler: explain how PRH behaves in the real environment, what it works against, where history is kept, and what administrators and reviewers should realistically expect from the product.
-
-If the Overview page explains what PRH is, this page explains how it behaves once teams start using it in a real SharePoint review process.
-
-## What This Page Helps You Understand
-
-| Topic | Why it matters in PRH |
-| :--- | :--- |
-| **Review scope** | PRH works against selected lists and libraries, not against everything automatically |
-| **Operational boundary** | Users need to know what PRH is designed to support and what it is not meant to replace |
-| **History behavior** | Review continuity depends on understanding where sessions are stored and how long they remain available |
-| **Admin expectations** | Governance teams need to know what should be decided before scans and remediation begin |
-| **User expectations** | Site owners and reviewers need to understand what PRH can tell them and what still requires human judgment |
+This page explains only the operational details that matter to admins, reviewers, and site owners. It focuses on what PRH records, when local Clarix lists are used, and how plan and license state affect that behavior.
 
 ## What PRH Works With
 
@@ -52,15 +40,113 @@ PRH is built for SharePoint permission review in the context where people actual
 
 PRH should be treated as a decision-support product. It helps teams understand likely risk faster, but it is still part of a larger governance and operating model.
 
-## What Administrators Should Know Before Using PRH
+## PRH Activity Records and Local Logging
 
-| Admin question | Best-practice answer |
+PRH can keep a local operational record of important product activity when that behavior is enabled by the administrator. This helps teams understand what happened during a review session without forcing them to read engineering diagnostics.
+
+| Topic | What admins and reviewers should know |
 | :--- | :--- |
-| **What should we scan first?** | Start with defined, high-value, or high-change scopes instead of broad exploratory scans |
-| **Who should be involved?** | The admin running PRH should know who the business owner is before remediation starts |
-| **How should findings be used?** | Use PRH findings to support review and action, not as automatic proof that every item must be changed |
-| **Can we use PRH for demos or training?** | Yes, but teams should understand whether they are working with mock data or live SharePoint content |
-| **What should happen before remediation?** | Owners and reviewers should agree whether the session is for discovery, validation, exception review, or corrective action |
+| **What PRH can record** | PRH can record scan activity, remediation actions, license-related actions, and list setup activity when local logging or telemetry is enabled |
+| **What PRH does not emphasize** | Frequent UI interactions such as view changes, tab switches, search updates, and pagination are treated as lower-value activity and may be grouped instead of written one by one |
+| **Why this matters** | The product keeps important operational events easier to review while avoiding unnecessary noise from every small click |
+| **Who needs this information** | Primarily administrators, support owners, and governance reviewers rather than everyday end users |
+
+### How Local PRH Activity Storage Works
+
+| Step | What happens |
+| :--- | :--- |
+| **1. PRH loads normally** | The web part does not force local Clarix list creation every time the page opens |
+| **2. Admin chooses whether to enable local recording** | Local logs and local telemetry depend on the PRH configuration set by the administrator |
+| **3. Admin uses `Create Lists`** | If local recording is enabled, the admin can provision the PRH activity lists from the web part itself |
+| **4. PRH starts using the available lists** | Once the lists exist, PRH can write the relevant operational activity there |
+
+| Local list | What it is used for |
+| :--- | :--- |
+| **`Clarix_Logs`** | Important PRH operational records such as scan, remediation, license, and provisioning events |
+| **`Clarix_Telemetry`** | Product activity signals that help teams understand behavior, usage flow, and support context |
+
+!!! note
+    PRH does not need these local lists just to load. They become relevant when your team wants stronger local troubleshooting or governance visibility.
+
+## What PRH Records
+
+PRH should be transparent about what it records. The product records meaningful review and support activity, but it does not treat every click as a major event.
+
+### PRH log events
+
+These are the stronger operational records. They are the events admins usually care about when they need to understand whether a scan, remediation, or setup action really happened.
+
+| Recorded in `Clarix_Logs` | When it is recorded |
+| :--- | :--- |
+| **List Scan Succeeded** | A selected list or library is scanned successfully |
+| **List Scan Failed** | A selected list or library fails during scan |
+| **Scan Completed** | The full PRH scan completes |
+| **Scan Failed** | The full PRH scan fails |
+| **Scan Interrupted** | A running scan is stopped |
+| **Scan Blocked By License** | A scan is prevented because the current license state does not allow it |
+| **Scan Blocked By Policy** | A scan is denied by plan or policy enforcement |
+| **List Provisioning Started** | An admin starts local Clarix list setup |
+| **List Provisioning Completed** | Local Clarix list setup succeeds |
+| **List Provisioning Failed** | Local Clarix list setup fails |
+| **License Refresh Failed** | PRH cannot refresh the current license state |
+| **License Key Validation Failed** | A supplied license key fails validation |
+
+### PRH telemetry events
+
+These are activity signals that help explain how PRH was used. Some are recorded immediately, while high-frequency interactions may be grouped to avoid noise.
+
+| Recorded in `Clarix_Telemetry` | When it is recorded |
+| :--- | :--- |
+| **Scan Started** | A PRH scan begins |
+| **Scan Completed** | A PRH scan completes successfully |
+| **Scan Failed** | A PRH scan fails |
+| **Scan Interrupted** | A running scan is stopped |
+| **Main View Changed** | A user switches between `Analysis` and `History` |
+| **Visual Mode Changed** | A user switches result views such as `Table`, `Grid`, `Clusters`, or `Radar` |
+| **Scope Selection Changed** | A user adds or removes a selected scope |
+| **Scope Selection Cleared** | A user clears the selected scope list |
+| **History Session Opened** | A user reopens an earlier review session |
+| **History Session Deleted** | A user deletes a saved session |
+| **History Cleared** | A user clears retained session history |
+| **Forensic Details Opened** | A user opens the forensic detail panel |
+| **Export Triggered** | A user exports the current result set |
+| **Results Pagination Changed** | A user moves between result pages |
+| **License Dialog Opened or Closed** | A user opens or closes the PRH licensing dialog |
+| **List Provisioning Dialog Opened or Closed** | An admin opens or closes the local list setup flow |
+| **License Refresh Succeeded or Failed** | PRH refreshes license state successfully or fails to do so |
+| **License Key Validated or Rejected** | PRH accepts or rejects a supplied license key |
+| **Trial Activated** | A PRH trial starts successfully |
+| **Remediation Requested or Completed** | A remediation flow is started or completed |
+| **Breach Simulation Started or Completed** | A breach simulation flow is used where the plan allows it |
+
+!!! note
+    Search text changes, filter churn, and other very frequent interface interactions are intentionally treated as lower-value telemetry. PRH may group those actions instead of writing every single change as a separate durable record.
+
+## How Plans Affect Local Recording
+
+| Plan or state | What users should expect |
+| :--- | :--- |
+| **Trial** | Full PRH analysis and interaction path is available. Local logs and telemetry can be recorded if enabled and provisioned. |
+| **Business** | PRH remains active with plan restrictions. Allowed actions still produce logs and telemetry. Restricted features do not appear as normal usage events. |
+| **Enterprise** | Full PRH experience is available, including the broader set of supported local log and telemetry events. |
+| **Blocked, suspended, expired, or invalid license** | Active analysis is prevented, but license and recovery-related activity can still be recorded when local storage is available. |
+
+## What This Means for Users
+
+| Situation | What users should expect |
+| :--- | :--- |
+| **A scan starts or finishes** | PRH can record that the review action occurred and whether it completed successfully |
+| **A remediation action is taken** | PRH can record that the corrective step was attempted or completed |
+| **A license or provisioning action happens** | PRH can record the outcome so admins can understand why functionality was available or blocked |
+| **Someone switches tabs or changes filters repeatedly** | PRH may group that interaction activity instead of treating every click as a major event |
+| **A license is blocked or expired** | Active analysis may be prevented, but license-related and recovery-related activity can still be captured when local recording is available |
+
+!!! note "Image Placeholder"
+    **Placeholder name:** `prh-local-logging-and-telemetry.png`
+
+    **What the final image should show:** the PRH command area that includes the `Create Lists` action, ideally with enough context to make it clear that administrators can enable local Clarix-backed recording from the PRH experience.
+
+    **Why this image matters:** this is the most practical way to show administrators where local PRH activity recording begins without dragging them into internal list schema or telemetry implementation detail.
 
 ## History, Storage, and Review Continuity
 
@@ -84,14 +170,12 @@ PRH is designed to support review continuity, not just one-time inspection.
 
     **Why this image matters:** this helps administrators understand that PRH supports continuity over time, which is one of the main operational differences between a one-off report and a reusable review tool.
 
-## What End Users and Reviewers Should Expect
+## What Admins Should Still Decide
 
-This page is still relevant to non-admin readers because PRH only works well when everyone understands what the product is doing.
-
-| Reader | What they should understand |
+| Decision area | Best-practice answer |
 | :--- | :--- |
-| **Site owners** | PRH is reviewing the selected scope, not the entire tenant |
-| **Business reviewers** | PRH findings support decision-making, but business context still matters |
-| **End users** | A flagged item does not always mean an immediate change, but it does mean the access pattern deserves review |
-| **Governance teams** | PRH is strongest when it is used as part of a recurring review process, not a one-off reaction |
-
+| **What should we scan first?** | Start with defined, high-value, or high-change scopes instead of broad exploratory scans |
+| **Who should be involved?** | The admin running PRH should know who the business owner is before remediation starts |
+| **How should findings be used?** | Use PRH findings to support review and action, not as automatic proof that every item must be changed |
+| **Can we use PRH for demos or training?** | Yes, but teams should understand whether they are working with mock data or live SharePoint content |
+| **What should happen before remediation?** | Owners and reviewers should agree whether the session is for discovery, validation, exception review, or corrective action |
